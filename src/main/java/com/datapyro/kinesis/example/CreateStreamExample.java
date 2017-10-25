@@ -1,4 +1,4 @@
-package com.datapyro.kinesis;
+package com.datapyro.kinesis.example;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;

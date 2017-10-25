@@ -1,4 +1,4 @@
-package com.datapyro.kinesis;
+package com.datapyro.kinesis.example;
 
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.v2.IRecordProcessor;
 import com.amazonaws.services.kinesis.clientlibrary.types.InitializationInput;
