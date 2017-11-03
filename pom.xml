@@ -23,6 +23,7 @@
         <maven-shade-plugin.version>2.3</maven-shade-plugin.version>
         <!-- Dependencies -->
         <aws-kinesis.version>1.8.5</aws-kinesis.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <junit.version>4.10</junit.version>
     </properties>
 
@@ -39,6 +40,12 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>amazon-kinesis-client</artifactId>
             <version>${aws-kinesis.version}</version>
+        </dependency>
+        <!-- Slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
         <!-- Junit -->
         <dependency>

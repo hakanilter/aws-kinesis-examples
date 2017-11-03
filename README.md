@@ -1,2 +1,2 @@
-# aws-kinesis-examples
+# AWS Kinesis Examples
 Some aws kinesis examples

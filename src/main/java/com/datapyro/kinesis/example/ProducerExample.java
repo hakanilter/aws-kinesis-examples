@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.datapyro.kinesis.common.KinesisExampleConstants.REGION;
-import static com.datapyro.kinesis.common.KinesisExampleConstants.STREAM_NAME;
 
 /**
  * Producer example
@@ -23,6 +22,7 @@ import static com.datapyro.kinesis.common.KinesisExampleConstants.STREAM_NAME;
 public class ProducerExample {
 
     private void run() {
+        final String streamName = "test";
         AmazonKinesisClientBuilder clientBuilder = AmazonKinesisClientBuilder.standard();
         clientBuilder.setRegion(REGION);
         clientBuilder.setCredentials(new EnvironmentVariableCredentialsProvider());
@@ -31,7 +31,7 @@ public class ProducerExample {
         AmazonKinesis client = clientBuilder.build();
 
         PutRecordsRequest putRecordsRequest = new PutRecordsRequest();
-        putRecordsRequest.setStreamName(STREAM_NAME);
+        putRecordsRequest.setStreamName(streamName);
         List<PutRecordsRequestEntry> putRecordsRequestEntryList = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             PutRecordsRequestEntry putRecordsRequestEntry = new PutRecordsRequestEntry();

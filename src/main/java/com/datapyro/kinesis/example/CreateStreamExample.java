@@ -10,7 +10,6 @@ import com.amazonaws.services.kinesis.model.DescribeStreamResult;
 
 import static com.datapyro.kinesis.common.KinesisExampleConstants.REGION;
 import static com.datapyro.kinesis.common.KinesisExampleConstants.SHARD_COUNT;
-import static com.datapyro.kinesis.common.KinesisExampleConstants.STREAM_NAME;
 
 /**
  * Create stream example
@@ -20,6 +19,7 @@ import static com.datapyro.kinesis.common.KinesisExampleConstants.STREAM_NAME;
 public class CreateStreamExample {
     
     private void run() throws Exception {
+        final String streamName = "test";
         AmazonKinesisClientBuilder clientBuilder = AmazonKinesisClientBuilder.standard();
         clientBuilder.setRegion(REGION);
         clientBuilder.setCredentials(new EnvironmentVariableCredentialsProvider());
@@ -28,12 +28,12 @@ public class CreateStreamExample {
         AmazonKinesis client = clientBuilder.build();
 
         CreateStreamRequest createStreamRequest = new CreateStreamRequest();
-        createStreamRequest.setStreamName(STREAM_NAME);
+        createStreamRequest.setStreamName(streamName);
         createStreamRequest.setShardCount(SHARD_COUNT);
 
         client.createStream(createStreamRequest);
         DescribeStreamRequest describeStreamRequest = new DescribeStreamRequest();
-        describeStreamRequest.setStreamName(STREAM_NAME);
+        describeStreamRequest.setStreamName(streamName);
 
         // wait up to 10 minutes for stream creation
         long startTime = System.currentTimeMillis();
@@ -50,9 +50,9 @@ public class CreateStreamExample {
             Thread.sleep(1000);
         }
         if (System.currentTimeMillis() >= endTime) {
-            throw new RuntimeException("Stream " + STREAM_NAME + " never went active");
+            throw new RuntimeException("Stream " + streamName + " never went active");
         }
-        System.out.println("Stream " + STREAM_NAME + " has been created");
+        System.out.println("Stream " + streamName + " has been created");
     }
 
     public static void main(String[] args) throws Exception {
