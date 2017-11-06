@@ -2,7 +2,7 @@ package com.datapyro.kinesis.dynamodb.test;
 
 import com.datapyro.kinesis.common.ApacheAccessLogParser;
 import com.datapyro.kinesis.dynamodb.ApacheLogDynamoDBRepository;
-import com.datapyro.kinesis.dynamodb.DynamoDBClientFactory;
+import com.datapyro.kinesis.dynamodb.base.DynamoDBClientFactory;
 import com.datapyro.kinesis.entity.ApacheLogEntity;
 import com.datapyro.kinesis.util.IOUtil;
 import org.junit.After;

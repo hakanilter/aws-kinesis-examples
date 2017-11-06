@@ -1,5 +1,6 @@
 package com.datapyro.kinesis.dynamodb;
 
+import com.datapyro.kinesis.dynamodb.base.BaseDynamoDBRepository;
 import com.datapyro.kinesis.entity.ApacheLogEntity;
 
 public class ApacheLogDynamoDBRepository extends BaseDynamoDBRepository<ApacheLogEntity> {

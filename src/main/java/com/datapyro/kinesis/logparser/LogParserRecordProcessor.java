@@ -6,7 +6,7 @@ import com.amazonaws.services.kinesis.clientlibrary.types.ProcessRecordsInput;
 import com.amazonaws.services.kinesis.clientlibrary.types.ShutdownInput;
 import com.datapyro.kinesis.common.ApacheAccessLogParser;
 import com.datapyro.kinesis.dynamodb.ApacheLogDynamoDBRepository;
-import com.datapyro.kinesis.dynamodb.DynamoDBClientFactory;
+import com.datapyro.kinesis.dynamodb.base.DynamoDBClientFactory;
 import com.datapyro.kinesis.entity.ApacheLogEntity;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class LogParserRecordProcessor implements IRecordProcessor {
     public void processRecords(ProcessRecordsInput input) {
         // parse logs and convert to DynamoDB entity
         List<ApacheLogEntity> entities = input.getRecords().stream()
-                                          .map(rec -> parser.parse(new String(rec.getData().array())))
+                                          .map(record -> parser.parse(new String(record.getData().array())))
                                           .collect(Collectors.toList());
         apacheLogRepository.saveAll(entities);
     }

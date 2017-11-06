@@ -1,4 +1,4 @@
-package com.datapyro.kinesis.dynamodb;
+package com.datapyro.kinesis.dynamodb.base;
 
 import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.regions.Region;
@@ -10,7 +10,7 @@ public class DynamoDBClientFactory {
 
     private static AmazonDynamoDB client;
 
-    public static AmazonDynamoDB getClient() {
+    public static synchronized AmazonDynamoDB getClient() {
         if (client == null) {
             client = new AmazonDynamoDBClient(new EnvironmentVariableCredentialsProvider().getCredentials());
             client.setRegion(Region.getRegion(Regions.EU_WEST_1));

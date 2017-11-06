@@ -7,9 +7,9 @@ public final class NetworkUtil {
 
     public static String getHostName() {
         try {
-            InetAddress addr = InetAddress.getLocalHost();
-            return addr.getHostName();
+            return InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
+            e.printStackTrace();
             return "unknown";
         }
     }
