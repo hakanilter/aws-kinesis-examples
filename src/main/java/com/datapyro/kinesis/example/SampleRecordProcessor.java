@@ -14,7 +14,7 @@ public class SampleRecordProcessor implements IRecordProcessor {
 
     @Override
     public void processRecords(ProcessRecordsInput input) {
-        input.getRecords().stream().forEach(rec -> System.out.println(new String(rec.getData().array())));
+        input.getRecords().stream().forEach(record -> System.out.println(new String(record.getData().array())));
     }
 
     @Override

@@ -10,8 +10,7 @@ public class ConsumerExample {
     private void run() {
         final String appName = "ConsumerExample";
         final String streamName = "test";
-
-        // What kind of constructor method is this???
+        
         final KinesisClientLibConfiguration config = KinesisUtil.getDefaultConfig(appName, streamName);
 
         final IRecordProcessorFactory recordProcessorFactory = new SampleRecordProcessorFactory();
